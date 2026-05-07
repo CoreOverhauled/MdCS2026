@@ -123,36 +123,42 @@ def invert_2x2(m1):
     invm1.set(1, 0, -m1.get(1, 0)/detm1); invm1.set(1, 1, m1.get(0, 0)/detm1)
     return invm1
 
+def matrix(rows, cols, data):
+    m = Matrix(rows, cols)
+    for i in range(0, rows):
+        for j in range(0, cols):
+            m.set(i, j, data[i][j])
+    return m
+
+if __name__ == "__main__":
+
+    m = Matrix(5, 6)
+    # Wiersz 0
+    m.set(0, 0, 0); m.set(0, 1, 1); m.set(0, 2, 1); m.set(0, 3, 1); m.set(0, 4, 1); m.set(0, 5, 14)
+    # Wiersz 1
+    m.set(1, 0, 1); m.set(1, 1, 1); m.set(1, 2, 1); m.set(1, 3, 1); m.set(1, 4, 1); m.set(1, 5, 15)
+    # Wiersz 2
+    m.set(2, 0, 1); m.set(2, 1, 1); m.set(2, 2, 2); m.set(2, 3, 2); m.set(2, 4, 2); m.set(2, 5, 27)
+    # Wiersz 3
+    m.set(3, 0, 1); m.set(3, 1, 1); m.set(3, 2, 2); m.set(3, 3, 3); m.set(3, 4, 3); m.set(3, 5, 36)
+    # Wiersz 4
+    m.set(4, 0, 1); m.set(4, 1, 1); m.set(4, 2, 2); m.set(4, 3, 3); m.set(4, 4, 4); m.set(4, 5, 41)
 
 
-
-m = Matrix(5, 6)
-# Wiersz 0
-m.set(0, 0, 0); m.set(0, 1, 1); m.set(0, 2, 1); m.set(0, 3, 1); m.set(0, 4, 1); m.set(0, 5, 14)
-# Wiersz 1
-m.set(1, 0, 1); m.set(1, 1, 1); m.set(1, 2, 1); m.set(1, 3, 1); m.set(1, 4, 1); m.set(1, 5, 15)
-# Wiersz 2
-m.set(2, 0, 1); m.set(2, 1, 1); m.set(2, 2, 2); m.set(2, 3, 2); m.set(2, 4, 2); m.set(2, 5, 27)
-# Wiersz 3
-m.set(3, 0, 1); m.set(3, 1, 1); m.set(3, 2, 2); m.set(3, 3, 3); m.set(3, 4, 3); m.set(3, 5, 36)
-# Wiersz 4
-m.set(4, 0, 1); m.set(4, 1, 1); m.set(4, 2, 2); m.set(4, 3, 3); m.set(4, 4, 4); m.set(4, 5, 41)
-
-
-#zadanie m.eqs
-m.swap_rows(0, 1)
-m.add_row(0, -1, 1)
-m.add_row(2, -1, 0)
-m.add_row(3, -1, 0)
-m.add_row(4, -1, 0)
-m.add_row(2, -1, 1)
-m.add_row(3, -1, 1)
-m.add_row(4, -1, 1)
-m.add_row(1, -1, 2)
-m.add_row(3, -1, 2)
-m.add_row(4, -1, 2)
-m.add_row(2, -1, 3)
-m.add_row(4, -1, 3)
-m.add_row(3, -1, 4)
-m.eqs_print()
+    #zadanie m.eqs
+    m.swap_rows(0, 1)
+    m.add_row(0, -1, 1)
+    m.add_row(2, -1, 0)
+    m.add_row(3, -1, 0)
+    m.add_row(4, -1, 0)
+    m.add_row(2, -1, 1)
+    m.add_row(3, -1, 1)
+    m.add_row(4, -1, 1)
+    m.add_row(1, -1, 2)
+    m.add_row(3, -1, 2)
+    m.add_row(4, -1, 2)
+    m.add_row(2, -1, 3)
+    m.add_row(4, -1, 3)
+    m.add_row(3, -1, 4)
+    m.eqs_print()
 
