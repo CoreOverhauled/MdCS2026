@@ -1,6 +1,10 @@
 from matrix import Matrix, read_matrix_file, write_matrix_file, matrix
 import sys
 
+def reduce_column_down(m, k):
+    for i in range(k, m.ncols()):
+        m.add_row(i, -m.get(i-1, k-1)/m.get(k-1, k-1), k - 1)
+
 def reduce_to_echelon(m):
     ... # TODO: funkcja schodkująca macierze
 
