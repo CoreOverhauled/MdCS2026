@@ -60,6 +60,14 @@ class Matrix:
             if abs(left_side - right_side) > error:
                 return False
         return True
+    
+    def print_matrix(self):
+        for i in self._data:
+            print("|", end = " ")
+            for j in i:
+                print(j, end = " ")
+            print("|")
+
 
     def __str__(self):
         return str(self._data)
@@ -111,6 +119,13 @@ def write_matrix_file(matrix, filename=None):
         opened_file.write("\n")
     if filename:
         opened_file.close()
+
+def matrix(data):
+    m = Matrix(len(data), len(data[0]))
+    for i in range(len(data)):
+        for j in range(len(data[0])):
+            m.set(i,j,data[i][j])
+    return m
 
 def rotate_2d(alpha): #ZAD m.rotate
     alpha = radians(alpha)
