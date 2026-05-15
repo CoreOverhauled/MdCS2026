@@ -37,6 +37,8 @@ class Matrix:
             for i in range(0, len(a)):
                 if i == len(a) - 1:
                     if not PrintedAny:
+                        if not math.isclose(a[i], 0):
+                            print(f"0 = {a[i]}")
                         continue
                     print(f" = {a[i]}")
                     continue
@@ -56,11 +58,11 @@ class Matrix:
                     else:
                         print(f"{a[i]}*x{i + 1}", end = '')
     
-    def max_abs(self):
+    def max_norm(self):
         return max([max([abs(x) for x in row]) for row in self._data])
     def check_solution(self, xs):
         SatisfiesEquations = True
-        maxvalue = self.max_abs()
+        maxvalue = self.max_norm()
         for row in self._data:
             lhs = 0
             for i in range(0, len(row)-1):
@@ -123,10 +125,10 @@ def invert_2x2(m1):
     invm1.set(1, 0, -m1.get(1, 0)/detm1); invm1.set(1, 1, m1.get(0, 0)/detm1)
     return invm1
 
-def matrix(rows, cols, data):
-    m = Matrix(rows, cols)
-    for i in range(0, rows):
-        for j in range(0, cols):
+def matrix(data):
+    m = Matrix(len(data), len(data[0]))
+    for i in range(0, len(data)):
+        for j in range(0, len(data[0])):
             m.set(i, j, data[i][j])
     return m
 
